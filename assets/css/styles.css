@@ -1,0 +1,20 @@
+body {
+  background: white; }
+
+.player-side {
+  width: 40%;
+  border-spacing: none;
+  border-collapse: collapse; }
+  .player-side .row {
+    width: 100%;
+    height: 40px; }
+    .player-side .row .box {
+      width: 10%;
+      height: 100%;
+      border: solid blue 2px;
+      margin: 0;
+      background: grey; }
+      .player-side .row .box:hover {
+        background: brown; }
+    .player-side .row .box-ship {
+      border: solid red 2px !important; }
