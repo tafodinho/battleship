@@ -1,25 +1,71 @@
 body {
     background: white;
 }
-.player-side {
-    width: 40%;
+.header {
+    width: 200px;
+    margin: 10px auto 0 auto;
+    button:first-child {
+        border: solid 1px #dd4b39;
+        width: 80px;
+        height: 30px;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover {
+            background: #dd4b39;
+            color: white;
+        }
+    }
+    button:last-child {
+        border: solid 1px #3db0b4;
+        width: 80px;
+        height: 30px;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover {
+            background: #3db0b4;
+            color: white
+        }
+    }
+}
+.clear-fix {
+    content: "";
+    clear: both;
+    display: table;
+}
+.container {
+    margin-top: 100px;
+    width: 80%;
+    position: relative;
+    margin: 50px auto 0 auto;
+}
+.player1-board, .player2-board {
+    width: 45%;
     border-spacing: none;
     border-collapse: collapse;
+    float: left;
+    margin: 0 2.5%;
     .row {
         width: 100%;
         height: 40px;
         .box {
             width: 10%;
             height: 100%;
-            border: solid blue 2px;
+            border: solid green 2px;
             margin: 0;
-            background: grey;
+            background: #3db0b4;
+            cursor: pointer; 
             &:hover {
-                background: brown
+                background: #0aab8a
             }
         }
         .box-ship {
-            border: solid red 2px !important;
+            border: solid #dd4b39 2px !important;
+            border-radius: 5px;
+            background: light-grey;
+            cursor: pointer;
+            &:hover {
+                background: orange
+            }
         }
     }
 }

@@ -12,7 +12,10 @@ const renderBoard = (board, parent) => {
         }
         parent.appendChild(row)
     }
-    placeShip(board.ships)
+    board.ships.forEach(ship => {
+        placeShip(ship)
+    });
+    
 }
 
 const placeShip = (ship) => {
@@ -23,6 +26,9 @@ const placeShip = (ship) => {
     }
 }
 
+const markHitLocation = (board) => {
+
+}
 
 
 export { renderBoard }

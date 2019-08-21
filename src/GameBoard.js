@@ -1,6 +1,6 @@
 class GameBoard {
     
-    constructor(ships) {
+    constructor(...ships) {
         this.grid = new Array(100)
         this.numRows = 10
         this.numColumns = 10
@@ -17,6 +17,10 @@ class GameBoard {
 
     receiveStrike() {
         
+    }
+
+    fire() {
+
     }
     
 }
