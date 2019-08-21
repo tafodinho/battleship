@@ -6,12 +6,13 @@ const renderBoard = (board, parent) => {
         row.setAttribute("class", "row")
         for(let j = 0; j < board.numColumns; j++) {
             const box = document.createElement('td')
-            box.setAttribute("id", `${i}${j}`)
+            box.setAttribute("id", `${board.owner}${i}${j}`)
             box.setAttribute("class", "box")
             row.appendChild(box)
         }
         parent.appendChild(row)
     }
+    
     board.ships.forEach(ship => {
         placeShip(ship)
     });
@@ -22,13 +23,13 @@ const placeShip = (ship) => {
     for(let i = 0; i < ship.location.length; i++) {
         const box = document.getElementById(ship.location[i])
         box.setAttribute("class", "box-ship")
-        console.log(box)
     }
 }
 
-const markHitLocation = (board) => {
-
+const markHitLocation = (hitSpot) => {
+    const location = document.getElementById(hitSpot)
+    location.innerHTML = "X"
 }
 
 
-export { renderBoard }
+export { renderBoard, markHitLocation }
