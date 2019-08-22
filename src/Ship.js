@@ -6,11 +6,16 @@ class Ship {
         this.hits = 0
     }
 
-    hit() {
-
+    hit(position) {
+        if (this.location.contains(position)){
+            hits++;
+        }
     }
     isSunk() {
-
+        if (this.hits == this.length){
+            return true;
+        }
+        return false;
     }
 }
 

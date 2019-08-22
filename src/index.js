@@ -22,3 +22,4 @@ computerParent.addEventListener("click", (e) => {
     console.log(e.target.id)
     markHitLocation(e.target.id)
 })
+
