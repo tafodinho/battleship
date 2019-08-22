@@ -50,22 +50,30 @@ body {
         .box {
             width: 8%;
             height: 40px;
-            border: solid green 2px;
+            border: solid green 3px;
             margin: 0;
             background: #3db0b4;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
             cursor: pointer; 
             &:hover {
                 background: #0aab8a
             }
         }
         .box-ship {
-            border: solid #dd4b39 2px !important;
+            border: solid #dd4b39 3px !important;
             border-radius: 5px;
             background: light-grey;
+            
             cursor: pointer;
             &:hover {
                 background: orange
             }
+        }
+        .hit-spot {
+            background: #dd4b39;
+            border: solid #dd4b39 3px !important;
         }
     }
 }

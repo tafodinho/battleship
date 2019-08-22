@@ -6,7 +6,7 @@ class GameBoard {
         this.numColumns = 10
         this.ships = ships
         this.owner = owner
-        this.visitedGrids = []
+        this.visitedCells = []
     }
     
     setShipsPosition() {
@@ -17,8 +17,21 @@ class GameBoard {
 
     }
 
-    receiveStrike() {
-        
+    receiveStrike(position) {
+        if(!this.isPositionTaken(position)) {
+            this.visitedCells.push(position)
+            return true
+        } else {
+            return false
+        }
+    }
+
+    isPositionTaken(position) {
+        if(this.visitedCells.includes(position)) {
+            return true
+        } else {
+            return false
+        }
     }
 
     fire() {

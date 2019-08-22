@@ -1,23 +1,11 @@
 
 const renderBoard = (board, parent) => {
-    for(let i = -1; i <= board.numRows; i++) {
+    for(let i = 0; i < board.numRows; i++) {
         const row = document.createElement("tr")
-       
         row.setAttribute("id", `row-${i}`)
         row.setAttribute("class", "row")
-        for(let j = -1; j <= board.numColumns; j++) {
+        for(let j = 0; j < board.numColumns; j++) {
             const box = document.createElement('td')
-            if (i==-1){
-                if (j!=-1){
-                    box.innerHTML = j
-                }
-                
-            }
-            if (j==-1){
-                if (i!=-1){
-                    box.innerHTML = i
-                }
-            }
             box.setAttribute("id", `${board.owner}${i}${j}`)
             box.setAttribute("class", "box")
             row.appendChild(box)
@@ -38,10 +26,37 @@ const placeShip = (ship) => {
     }
 }
 
-const markHitLocation = (hitSpot) => {
-    const location = document.getElementById(hitSpot)
-    location.innerHTML = "X"
+const markHitLocation = (hitSpot, board) => {
+    if(board.receiveStrike(hitSpot)) {
+        board.ships.forEach(ship => {
+            if(ship.isHit(hitSpot)) {
+                const spot = document.getElementById(hitSpot)
+                spot.setAttribute("class", "hit-spot")
+                if(ship.isSunk()) {
+                    displayMessage("One Enemy ship Destroyed")
+                }
+                throw BreakException
+            }
+        })
+        const location = document.getElementById(hitSpot)
+        location.innerHTML = "X"
+    } else {
+        displayMessage("play again")
+    }
+}
+
+const displayMessage = (message) => {
+    const messageArea = document.getElementById("message")
+    messageArea.innerHTML = message
+}
+
+const clearMessage = () => {
+    setInterval(() => {
+        const messageArea = document.getElementById("message")
+        messageArea.innerHTML = ""
+    }, 3000)
 }
 
 
-export { renderBoard, markHitLocation }
+
+export { renderBoard, markHitLocation, clearMessage }
