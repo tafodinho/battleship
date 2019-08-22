@@ -6,8 +6,9 @@ class GameBoard {
         this.numColumns = 10
         this.ships = ships
         this.owner = owner
+        this.visitedGrids = []
     }
-
+    
     setShipsPosition() {
 
     }
