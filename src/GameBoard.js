@@ -2,8 +2,8 @@ class GameBoard {
     
     constructor(ships, owner) {
         this.grid = new Array(100)
-        this.numRows = 10
-        this.numColumns = 10
+        this.numRows = 11
+        this.numColumns = 11
         this.ships = ships
         this.owner = owner
         this.visitedGrids = []
