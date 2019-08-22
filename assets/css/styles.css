@@ -45,7 +45,7 @@ body {
     height: 40px; }
     .player1-board .row .box, .player2-board .row .box {
       width: 10%;
-      height: 100%;
+      height: 40px;
       border: solid green 2px;
       margin: 0;
       background: #3db0b4;
