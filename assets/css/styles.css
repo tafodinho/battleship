@@ -32,7 +32,8 @@ body {
   margin-top: 100px;
   width: 80%;
   position: relative;
-  margin: 50px auto 0 auto; }
+  margin: 50px auto 0 auto;
+  text-align: center; }
 
 .player1-board, .player2-board {
   width: 45%;
@@ -42,20 +43,26 @@ body {
   margin: 0 2.5%; }
   .player1-board .row, .player2-board .row {
     width: 100%;
-    height: 40px; }
+    height: 40px !important; }
     .player1-board .row .box, .player2-board .row .box {
       width: 8%;
       height: 40px;
-      border: solid green 2px;
+      border: solid green 3px;
       margin: 0;
       background: #3db0b4;
+      text-align: center;
+      font-size: 32px;
+      font-weight: bold;
       cursor: pointer; }
       .player1-board .row .box:hover, .player2-board .row .box:hover {
         background: #0aab8a; }
     .player1-board .row .box-ship, .player2-board .row .box-ship {
-      border: solid #dd4b39 2px !important;
+      border: solid #dd4b39 3px !important;
       border-radius: 5px;
       background: light-grey;
       cursor: pointer; }
       .player1-board .row .box-ship:hover, .player2-board .row .box-ship:hover {
         background: orange; }
+    .player1-board .row .hit-spot, .player2-board .row .hit-spot {
+      background: #dd4b39;
+      border: solid #dd4b39 3px !important; }

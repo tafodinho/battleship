@@ -5,18 +5,22 @@ class Ship {
         this.location = location
         this.hits = 0
     }
-    hit(position) {
-        if (this.location.contains(position)){
-            hits++;
-            return true;
+
+    isHit(position) {
+        if(this.location.includes(position)) {
+            this.hits++
+            return true
+        } else {
+            return false
         }
         return false;
     }
     isSunk() {
-        if (this.hits == this.length){
-            return true;
+        if(this.hits >= this.location.length) {
+            return true
+        } else {
+            return false
         }
-        return false;
     }
 }
 

@@ -1,6 +1,6 @@
 import GameBoard from './GameBoard'
 import Ship from './Ship'
-import { renderBoard, markHitLocation} from './ultility'
+import { renderBoard, markHitLocation, clearMessage} from './ultility'
 import Player from './Player';
 
 const playerParent = document.getElementById("player1-board")
@@ -20,6 +20,7 @@ renderBoard(computerBoard, computerParent)
 
 computerParent.addEventListener("click", (e) => {
     console.log(e.target.id)
-    markHitLocation(e.target.id)
+    markHitLocation(e.target.id, computerBoard)
 })
 
+clearMessage()
