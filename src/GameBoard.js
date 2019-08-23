@@ -57,8 +57,6 @@ class GameBoard {
         } else {
             this.displayMessage("Game over all ships destroyed")
         }
-        
-        
     }
 
     isPositionTaken(position) {
