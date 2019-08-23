@@ -1,5 +1,3 @@
-import Ship from './Ship'
-
 class GameBoard {
     
     constructor(ships, owner) {
