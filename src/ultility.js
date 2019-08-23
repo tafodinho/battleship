@@ -13,9 +13,14 @@ const renderBoard = (board, parent) => {
         parent.appendChild(row)
     }
     
-    board.ships.forEach(ship => {
-        placeShip(ship)
-    });
+    if(board.owner === "c") {
+
+    } else {
+        board.ships.forEach(ship => {
+            placeShip(ship)
+        });
+    }
+    
     
 }
 
@@ -54,7 +59,7 @@ const clearMessage = () => {
     setInterval(() => {
         const messageArea = document.getElementById("message")
         messageArea.innerHTML = ""
-    }, 3000)
+    }, 10000)
 }
 
 
