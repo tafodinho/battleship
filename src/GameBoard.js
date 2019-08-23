@@ -31,12 +31,34 @@ class GameBoard {
         }
     }
 
-    receiveStrike(position) {
-        if(!this.isPositionTaken(position)) {
-            this.visitedCells.push(position)
-            return true
-        } 
-        return false
+    receiveStrike(spot) {
+        if(!this.isAllShipSunk()) {
+            if(!this.isPositionTaken(spot)) {
+                this.visitedCells.push(spot)
+                this.ships.forEach(ship => {
+                    if(ship.isHit(spot)) {
+                        const hitSpot = document.getElementById(spot)
+                        hitSpot.setAttribute("class", "hit-spot")
+                        if(ship.isSunk()) {
+                            this.displayMessage("One Enemy ship Destroyed")
+                            if(this.isAllShipSunk()) {
+                                this.displayMessage("Game over all ships destroyed")
+                            }
+                        }
+                        throw BreakException
+                    }
+                })
+                
+                const location = document.getElementById(spot)
+                location.innerHTML = "X"
+            } else {
+                this.displayMessage("choose another spot")
+            }
+        } else {
+            this.displayMessage("Game over all ships destroyed")
+        }
+        
+        
     }
 
     isPositionTaken(position) {
@@ -75,5 +97,9 @@ class GameBoard {
         }
     }
     
+     displayMessage(message) {
+        const messageArea = document.getElementById("message")
+        messageArea.innerHTML = message
+    }
 }
 export default GameBoard
