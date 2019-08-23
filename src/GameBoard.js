@@ -26,17 +26,16 @@ class GameBoard {
         if(!this.isPositionTaken(position)) {
             this.visitedCells.push(position)
             return true
-        } else {
-            return false
-        }
+        } 
+        return false
     }
 
     isPositionTaken(position) {
         if(this.visitedCells.includes(position)) {
             return true
-        } else {
-            return false
         }
+        return false
+        
     }
     
 }
