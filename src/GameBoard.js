@@ -15,11 +15,20 @@ class GameBoard {
     setShipsPosition(ship, location) {
         ship.location = location;
         this.ships.push(ship);
-
     }
-
-    isShipsSunk() {
-        
+    
+    isAllShipSunk() {
+        let count = 0
+        this.ships.forEach(ship => {
+            if(ship.isSunk()) {
+                count++
+            }
+        });
+        if(count >= this.ships.length) {
+            return true
+        } else {
+            return false
+        }
     }
 
     receiveStrike(position) {

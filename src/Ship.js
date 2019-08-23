@@ -13,6 +13,7 @@ class Ship {
         } 
         return false;
     }
+    
     isSunk() {
         if(this.hits >= this.location.length) {
             return true
