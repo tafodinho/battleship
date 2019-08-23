@@ -1,3 +1,5 @@
+import Ship from './Ship'
+
 class GameBoard {
     
     constructor(ships, owner) {
@@ -9,12 +11,14 @@ class GameBoard {
         this.visitedGrids = []
     }
     
-    setShipsPosition() {
+    setShipsPosition(ship, location) {
+        ship.location = location;
+        this.ships.push(ship);
 
     }
 
-    isShipsSunk() {
-
+    isShipsSunk(ship) {
+        return ship.isSunk();
     }
 
     receiveStrike() {
