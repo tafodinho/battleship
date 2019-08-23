@@ -16,7 +16,7 @@ class GameBoard {
         ship.location = location;
         this.ships.push(ship);
     }
-    
+
     isAllShipSunk() {
         let count = 0
         this.ships.forEach(ship => {
@@ -47,30 +47,33 @@ class GameBoard {
         
     }
 
-renderBoard (parent){
-    for(let i = 0; i < board.numRows; i++) {
-        const row = document.createElement("tr")
-        row.setAttribute("id", `row-${i}`)
-        row.setAttribute("class", "row")
-        for(let j = 0; j < this.numColumns; j++) {
-            const box = document.createElement('td')
-            box.setAttribute("id", `${isTSMethodSignature.owner}${i}${j}`)
-            box.setAttribute("class", "box")
-            row.appendChild(box)
+    renderBoard (parent){
+        for(let i = 0; i < this.numRows; i++) {
+            const row = document.createElement("tr")
+            row.setAttribute("id", `row-${i}`)
+            row.setAttribute("class", "row")
+            for(let j = 0; j < this.numColumns; j++) {
+                const box = document.createElement('td')
+                box.setAttribute("id", `${this.owner}${i}${j}`)
+                box.setAttribute("class", "box")
+                row.appendChild(box)
+            }
+            parent.appendChild(row)
         }
-        parent.appendChild(row)
+        
+        if(this.owner === "p") {
+            this.ships.forEach(ship => {
+                this.placeShip(ship)
+            });
+        } 
     }
-    
-    if(board.owner === "c") {
 
-    } else {
-        board.ships.forEach(ship => {
-            placeShip(ship)
-        });
+    placeShip(ship) {
+        for(let i = 0; i < ship.location.length; i++) {
+            const box = document.getElementById(ship.location[i])
+            box.setAttribute("class", "box-ship")
+        }
     }
-    
-    
-}
     
 }
 export default GameBoard

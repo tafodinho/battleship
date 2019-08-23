@@ -1,6 +1,6 @@
 import GameBoard from './GameBoard'
 import Ship from './Ship'
-import { renderBoard, markHitLocation, clearMessage} from './ultility'
+import { renderBoard, markHitLocation, clearMessage, displayBoard} from './ultility'
 import Player from './Player';
 
 const playerParent = document.getElementById("player1-board")
@@ -14,9 +14,9 @@ const computerBoard = new GameBoard([cShip1, cShip2], "c")
 const player = new Player("player", playerBoard)
 const computer = new Player("computer", computerBoard)
 
-renderBoard(playerBoard, playerParent)
+displayBoard(playerBoard, playerParent)
 
-renderBoard(computerBoard, computerParent)
+displayBoard(computerBoard, computerParent)
 
 computerParent.addEventListener("click", (e) => {
     console.log(e.target.id)
