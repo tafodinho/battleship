@@ -9,10 +9,8 @@ class GamePlay {
     }
 
     playBattleShip() {
-        let i = 4;
         do {
             console.log("in game");
-            i++;
           }
           while (!isGameOver());
           
@@ -27,20 +25,42 @@ class GamePlay {
         let ships =[];
         // genereate two ships with length 4
         for(let i =0; i>2; i++){
-            this.createAShip(4,owner)
+            let ship = this.createAShip(4,owner)
+            if(checkSuperimposition(ships, ship)){
+                this.createAShip(4,owner);
+            }
         }
          // genereate three ships with length 3
          for(let i =0; i>3; i++){
-            this.createAShip(3,owner)
+            let ship = this.createAShip(3,owner);
+            if(checkSuperimposition(ships, ship)){
+                this.createAShip(3,owner);
+            }
         }
           // genereate 2 ships with length 2
           for(let i =0; i>2; i++){
-            this.createAShip(2,owner)
+            let ship = this.createAShip(2,owner)
+            if(checkSuperimposition(ships, ship)){
+                this.createAShip(2,owner);
+            }
         }
           // genereate 4 ships with length 1
           for(let i =0; i>4; i++){
-            this.createAShip(1,owner)
+            let ship = this.createAShip(1,owner)
+            if(checkSuperimposition(ships, ship)){
+                this.createAShip(1,owner);
+            }
         }
+    }
+    checkSuperimposition(ships, ship){
+        let imposition = 0;
+        ships.forEach(function(currentValue){
+            let imposition = currentValue.location.filter(element => ship.location.includes(element));
+        });
+        if (imposition == 0){
+            return true;
+        }
+        return false;
     }
     createAShip(lengthOfShip, owner){
         let location = [];
