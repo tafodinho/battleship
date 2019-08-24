@@ -5,7 +5,7 @@ import {
         markHitLocation, 
         clearMessage, 
         displayBoard,
-        generateSpot } from './ultility'
+        generateSpot,createAShip } from './ultility'
 import Player from './Player';
 import { playerShips, computerShips } from './ships'
 
@@ -29,37 +29,38 @@ container.addEventListener("click", (e) => {
 let reset = document.querySelector(".reset");
 reset.addEventListener('click', function(event) {
     const gamepPlay = new GamePlay(playerBoard, computerBoard);
+    console.log("got to ships");
     gamepPlay.generateShips("c");
     gamepPlay.generateShips("p");
 });
 
 
-clearMessage()
-const createAShip = ((lengthOfShip, owner, orientation) => {
-    let location = [];
-    let firstDigit = null;
-    let secondDigit = null;
-    let spot = ""
-    let i = 0
-    while(location.length < lengthOfShip) {
-        if(orientation == "horizontal") {
-            if(location.length == 0) {
-                firstDigit = Math.floor(Math.random() * 10);
-                secondDigit = Math.floor(Math.random() * 10);
-            } else {
-                secondDigit += 1
-            }
-        } else {
-            if(location.length == 0) {
-                firstDigit = Math.floor(Math.random() * 10);
-                secondDigit = Math.floor(Math.random() * 10);
-            } else {
-                firstDigit += 1
-            }
-        }
+// clearMessage()
+// const createAShip = ((lengthOfShip, owner, orientation) => {
+//     let location = [];
+//     let firstDigit = null;
+//     let secondDigit = null;
+//     let spot = ""
+//     let i = 0
+//     while(location.length < lengthOfShip) {
+//         if(orientation == "horizontal") {
+//             if(location.length == 0) {
+//                 firstDigit = Math.floor(Math.random() * 10);
+//                 secondDigit = Math.floor(Math.random() * 10);
+//             } else {
+//                 secondDigit += 1
+//             }
+//         } else {
+//             if(location.length == 0) {
+//                 firstDigit = Math.floor(Math.random() * 10);
+//                 secondDigit = Math.floor(Math.random() * 10);
+//             } else {
+//                 firstDigit += 1
+//             }
+//         }
        
-        spot = owner+firstDigit+secondDigit
-        location.push(spot)
-    }
-    return new Ship(location);
-})(4, "p", "vertical")
+//         spot = owner+firstDigit+secondDigit
+//         location.push(spot)
+//     }
+//     return new Ship(location);
+// })(4, "p", "vertical")

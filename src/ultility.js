@@ -1,3 +1,4 @@
+import Ship from './Ship'
 
 const markHitLocation = (hitSpot, board) => {
     board.receiveStrike(hitSpot)
@@ -24,7 +25,8 @@ const generateSpot = (board) => {
     return spot
 }
 
-const createAShip = (lengthOfShip, owner, orientation) => {
+const createAShip = (lengthOfShip, owner, orientation, ships) => {
+    console.log(lengthOfShip);
     let location = [];
     let firstDigit = null;
     let secondDigit = null;
@@ -35,22 +37,44 @@ const createAShip = (lengthOfShip, owner, orientation) => {
             if(location.length == 0) {
                 firstDigit = Math.floor(Math.random() * 10);
                 secondDigit = Math.floor(Math.random() * 10);
-            } else {
-                secondDigit += 1
+            } else if(secondDigit + lengthOfShip > 8){
+                secondDigit -= 1
+            }else{
+                secondDigit +=1
             }
         } else {
             if(location.length == 0) {
                 firstDigit = Math.floor(Math.random() * 10);
                 secondDigit = Math.floor(Math.random() * 10);
-            } else {
-                firstDigit += 1
+            } else if(firstDigit + lengthOfShip > 8){
+                firstDigit -= 1
+            }else{
+                firstDigit +=1
             }
         }
        
         spot = owner+firstDigit+secondDigit
         location.push(spot)
+    } 
+    return checkSuperImposition(ships, new Ship(location),lengthOfShip, owner, orientation);
+}
+const checkSuperImposition = (ships, ship,lengthOfShip, owner, orientation)=> {
+    let imposition = 0;
+    console.log(ships);
+    console.log(ship);
+    if (ships.length >0){
+        ships.forEach(function(currentValue){
+            imposition = currentValue.location.filter(element => ship.location.includes(element));
+            console.log("this is imposition" +imposition);
+        });
     }
-    return new Ship(location);
+    if (imposition == 0){
+        return ship;
+    }else{
+        createAShip(lengthOfShip, owner, orientation, ships)
+    }
+
+    
 }
 
-export { displayBoard, markHitLocation, clearMessage, generateSpot }
+export { displayBoard, markHitLocation, clearMessage, generateSpot, createAShip, checkSuperImposition }
