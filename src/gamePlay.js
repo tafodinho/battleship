@@ -26,11 +26,11 @@ class GamePlay {
     generateShips(owner){
         let ships =[];
         // genereate two ships with length 4
-        for(let i =0; i>2; i++){
+        for(let i = 0; i > 2; i++){
             this.createAShip(4,owner)
         }
          // genereate three ships with length 3
-         for(let i =0; i>3; i++){
+         for(let i = 0; i > 3; i++){
             this.createAShip(3,owner)
         }
           // genereate 2 ships with length 2
