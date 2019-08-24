@@ -14,4 +14,14 @@ const displayBoard = (board, parent) => {
     board.renderBoard(parent)
 }
 
-export { displayBoard, markHitLocation, clearMessage }
+const generateSpot = (board) => {
+    let spot = ""
+    do {
+        let firstDigit = Math.floor(Math.random()*10)
+        let secondDigit = Math.floor(Math.random()*10)
+        spot = "p"+firstDigit+secondDigit;
+    } while(board.isPositionTaken(spot))
+    return spot
+}
+
+export { displayBoard, markHitLocation, clearMessage, generateSpot }

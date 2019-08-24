@@ -46,7 +46,6 @@ class GameBoard {
                         throw BreakException
                     }
                 })
-                
                 const location = document.getElementById(spot)
                 location.innerHTML = "X"
             } else {
