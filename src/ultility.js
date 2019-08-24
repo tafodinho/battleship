@@ -24,9 +24,28 @@ const generateSpot = (board) => {
     } while(board.isPositionTaken(spot))
     return spot
 }
+const generateShips = (owner) => {
+    let ships =[];
+    // genereate two ships with length 4
+    for(let i =0; i<2; i++){
+        ships.push(createAShip(4,owner,"horizontal",ships))
+    }
+     // genereate three ships with length 3
+    for(let i =0; i<2; i++){
+        ships.push(createAShip(3,owner,null,ships))
+    }
+      // genereate 2 ships with length 2
+    for(let i =0; i<2; i++){
+        ships.push(createAShip(2,owner,"horizontal",ships))
+    }
+      // genereate 4 ships with length 1
+    for(let i =0; i<3; i++){
+        ships.push(createAShip(1,owner,null,ships))
+    }
+    return ships;
+}
 
 const createAShip = (lengthOfShip, owner, orientation, ships) => {
-    console.log(lengthOfShip);
     let location = [];
     let firstDigit = null;
     let secondDigit = null;
@@ -52,7 +71,6 @@ const createAShip = (lengthOfShip, owner, orientation, ships) => {
                 firstDigit +=1
             }
         }
-       
         spot = owner+firstDigit+secondDigit
         location.push(spot)
     } 
@@ -60,21 +78,16 @@ const createAShip = (lengthOfShip, owner, orientation, ships) => {
 }
 const checkSuperImposition = (ships, ship,lengthOfShip, owner, orientation)=> {
     let imposition = 0;
-    console.log(ships);
-    console.log(ship);
     if (ships.length >0){
         ships.forEach(function(currentValue){
             imposition = currentValue.location.filter(element => ship.location.includes(element));
-            console.log("this is imposition" +imposition);
         });
     }
     if (imposition == 0){
         return ship;
     }else{
-        createAShip(lengthOfShip, owner, orientation, ships)
+       return createAShip(lengthOfShip, owner, orientation, ships)
     }
-
-    
 }
 
-export { displayBoard, markHitLocation, clearMessage, generateSpot, createAShip, checkSuperImposition }
+export { displayBoard, markHitLocation, clearMessage, generateSpot, createAShip, checkSuperImposition,generateShips }
