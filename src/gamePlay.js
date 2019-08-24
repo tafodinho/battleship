@@ -53,7 +53,7 @@ class GamePlay {
     }
     checkSuperimposition(ships, ship){
         let imposition = 0;
-        ships.forEach(function(currentValue){
+        ships.forEach(currentValue => {
             imposition = currentValue.location.filter(element => ship.location.includes(element));
         });
         if (imposition == 0){

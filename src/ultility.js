@@ -24,33 +24,4 @@ const generateSpot = (board) => {
     return spot
 }
 
-const createAShip = (lengthOfShip, owner, orientation) => {
-    let location = [];
-    let firstDigit = null;
-    let secondDigit = null;
-    let spot = ""
-    let i = 0
-    while(location.length < lengthOfShip) {
-        if(orientation == "horizontal") {
-            if(location.length == 0) {
-                firstDigit = Math.floor(Math.random() * 10);
-                secondDigit = Math.floor(Math.random() * 10);
-            } else {
-                secondDigit += 1
-            }
-        } else {
-            if(location.length == 0) {
-                firstDigit = Math.floor(Math.random() * 10);
-                secondDigit = Math.floor(Math.random() * 10);
-            } else {
-                firstDigit += 1
-            }
-        }
-       
-        spot = owner+firstDigit+secondDigit
-        location.push(spot)
-    }
-    return new Ship(location);
-}
-
 export { displayBoard, markHitLocation, clearMessage, generateSpot }

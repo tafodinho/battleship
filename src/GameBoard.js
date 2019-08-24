@@ -1,13 +1,16 @@
+import Ship from './Ship'
+
 class GameBoard {
     
-    constructor(ships, owner) {
+    constructor(owner) {
         this.grid = new Array(100)
         this.numRows = 10
         this.numColumns = 10
-        this.ships = ships
         this.owner = owner
         this.visitedCells = []
         this.damagedShips = 0
+        this.locationsTaken = []
+        this.ships = this.generateShips()
     }
     
     setShipsPosition(ship, location) {
@@ -63,6 +66,12 @@ class GameBoard {
         return false
         
     }
+    isPlacementSpotTaken(spot) {
+        if(this.locationsTaken.includes(spot)) {
+            return true
+        }
+        return false
+    }
 
     renderBoard (parent){
         for(let i = 0; i < this.numRows; i++) {
@@ -87,14 +96,84 @@ class GameBoard {
 
     placeShip(ship) {
         for(let i = 0; i < ship.location.length; i++) {
+            console.log(ship)
             const box = document.getElementById(ship.location[i])
             box.setAttribute("class", "box-ship")
         }
     }
     
-     displayMessage(message) {
+    displayMessage(message) {
         const messageArea = document.getElementById("message")
         messageArea.innerHTML = message
+    }
+
+    generateShip(lengthOfShip, orientation) {
+        let location = [];
+        let firstDigit = null;
+        let secondDigit = null;
+        let spot = ""
+        while(location.length < lengthOfShip) {
+            do {
+                if(orientation == "horizontal") {
+                    if(location.length == 0) {
+                        firstDigit = Math.floor(Math.random() * 10);
+                        secondDigit = Math.floor(Math.random() * 10);
+                    } else if((secondDigit+lengthOfShip) <= 9){
+                        secondDigit += 1
+                    } else {
+                        secondDigit -= 1
+                    }
+                } else {
+                    if(location.length == 0) {
+                        firstDigit = Math.floor(Math.random() * 10);
+                        secondDigit = Math.floor(Math.random() * 10);
+                    } else if((firstDigit+lengthOfShip) <= 9) {
+                        firstDigit += 1
+                    }else {
+                        firstDigit -= 1
+                    }
+                }
+                spot = this.owner+firstDigit+secondDigit
+            }while(this.isPlacementSpotTaken(spot))
+            location.push(spot)
+            this.locationsTaken.push(spot)
+        }
+        return new Ship(location);
+    }
+
+    generateShips () {
+        let ships = []
+        let i = 0
+        while(i < 3) {
+            ships.push(this.generateShip(3, "horizontal"))
+            i++
+        }
+        i = 0
+        while(i < 3) {
+            ships.push(this.generateShip(3, "vertical"))
+            i++
+        }
+        i = 0
+        while(i < 3) {
+            ships.push(this.generateShip(4, "horizontal"))
+            i++
+        }
+        i = 0
+        while(i < 3) {
+            ships.push(this.generateShip(4, "vertical"))
+            i++
+        }
+        i = 0
+        while(i < 2) {
+            ships.push(this.generateShip(2, "horizontal"))
+            i++
+        }
+        i = 0
+        while(i < 2) {
+            ships.push(this.generateShip(1, "horizontal"))
+            i++
+        }
+        return ships
     }
 }
 export default GameBoard
