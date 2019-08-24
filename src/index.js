@@ -1,5 +1,5 @@
 import GameBoard from './GameBoard'
-import Ship from './Ship'
+import GamePlay from './gamePlay'
 import { 
         markHitLocation, 
         clearMessage, 
@@ -25,5 +25,12 @@ container.addEventListener("click", (e) => {
     markHitLocation(e.target.id, computerBoard)
     markHitLocation(generateSpot(playerBoard), playerBoard)
 })
+let reset = document.querySelector(".reset");
+reset.addEventListener('click', function(event) {
+    const gamepPlay = new GamePlay(playerBoard, computerBoard);
+    gamepPlay.generateShips("c");
+    gamepPlay.generateShips("p");
+});
+
 
 clearMessage()

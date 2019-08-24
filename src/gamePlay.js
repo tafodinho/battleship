@@ -1,5 +1,4 @@
 import Ship from './Ship'
-import GameBoard from './GameBoard'
 
 class GamePlay {
     
@@ -80,3 +79,4 @@ class GamePlay {
         return new Ship(location);
     }
 }
+export default GamePlay

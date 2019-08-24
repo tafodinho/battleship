@@ -43,7 +43,7 @@ class GameBoard {
                                 this.displayMessage("Game over all ships destroyed")
                             }
                         }
-                        throw BreakException
+                        //throw BreakException
                     }
                 })
                 const location = document.getElementById(spot)
