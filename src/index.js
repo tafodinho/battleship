@@ -1,5 +1,6 @@
 import GameBoard from './GameBoard'
 import GamePlay from './gamePlay'
+import Ship from './ship'
 import { 
         markHitLocation, 
         clearMessage, 
