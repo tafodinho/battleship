@@ -55,7 +55,7 @@ class GamePlay {
     checkSuperimposition(ships, ship){
         let imposition = 0;
         ships.forEach(function(currentValue){
-            let imposition = currentValue.location.filter(element => ship.location.includes(element));
+            imposition = currentValue.location.filter(element => ship.location.includes(element));
         });
         if (imposition == 0){
             return true;
