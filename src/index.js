@@ -29,6 +29,10 @@ let reset = document.querySelector(".reset");
 reset.addEventListener('click', function(event) {
     generateShips("c");
     generateShips("p");
+
+displayBoard(playerBoard, playerParent)
+
+displayBoard(computerBoard, computerParent)
 });
 
 
