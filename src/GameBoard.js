@@ -32,11 +32,13 @@ class GameBoard {
     }
 
     receiveStrike(spot) {
+        let hit = false
         if(!this.isAllShipSunk()) {
             if(!this.isPositionTaken(spot)) {
                 this.visitedCells.push(spot)
                 this.ships.forEach(ship => {
                     if(ship.isHit(spot)) {
+                        hit = true
                         const hitSpot = document.getElementById(spot)
                         hitSpot.setAttribute("class", "hit-spot")
                         if(ship.isSunk()) {
@@ -47,18 +49,21 @@ class GameBoard {
                             }
                             console.log("bread")
                         }
-                        // throw BreakException
-                        return true
-                    } 
+                    }  
                 })
-                const location = document.getElementById(spot)
-                location.innerHTML = "X"
+                if(!hit) {
+                    const location = document.getElementById(spot)
+                    location.innerHTML = "X"
+                }
+                return true
             } else {
                 this.displayMessage("choose another spot")
+                return false
             }
         } else {
             this.displayMessage(`Game over all ships destroyed ${this.owner} wins`)
             console.log(1)
+            return false
         }
     }
     isPositionTaken(position) {
