@@ -1,7 +1,7 @@
 import Ship from './Ship'
 
 const markHitLocation = (hitSpot, board) => {
-    board.receiveStrike(hitSpot)
+    return board.receiveStrike(hitSpot)
 }
 
 const clearMessage = () => {

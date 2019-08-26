@@ -21,8 +21,10 @@ displayBoard(playerBoard, playerParent)
 displayBoard(computerBoard, computerParent)
 
 container.addEventListener("click", (e) => {
-    markHitLocation(e.target.id, computerBoard)
-    markHitLocation(generateSpot(playerBoard), playerBoard)
+    if(markHitLocation(e.target.id, computerBoard)) {
+        markHitLocation(generateSpot(playerBoard), playerBoard)
+    }
+    
 })
 let reset = document.querySelector(".reset");
 
