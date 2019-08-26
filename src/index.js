@@ -8,13 +8,10 @@ import Player from './Player';
 
 const computerShips = generateShips("c")
 const playerShips = generateShips("p")
+console.log(computerShips)
 const playerParent = document.getElementById("player1-board")
 const computerParent = document.getElementById("player2-board")
 const container = document.getElementById("container")
-const playerBoard = new GameBoard("p")
-const computerBoard = new GameBoard("c")
-const player = new Player("player", playerBoard)
-const computer = new Player("computer", computerBoard)
 const playerBoard = new GameBoard(playerShips, "p")
 const computerBoard = new GameBoard(computerShips, "c")
 
@@ -28,6 +25,7 @@ container.addEventListener("click", (e) => {
     markHitLocation(generateSpot(playerBoard), playerBoard)
 })
 let reset = document.querySelector(".reset");
+
 reset.addEventListener('click', function(event) {
     generateShips("c");
     generateShips("p");
