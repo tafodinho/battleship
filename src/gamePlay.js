@@ -20,7 +20,5 @@ class GamePlay {
         }
         return false;
     }
-   
-
 }
 export default GamePlay

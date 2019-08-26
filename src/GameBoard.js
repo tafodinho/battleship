@@ -1,13 +1,16 @@
+import Ship from './Ship'
+
 class GameBoard {
     
     constructor(ships, owner) {
         this.grid = new Array(100)
         this.numRows = 10
         this.numColumns = 10
-        this.ships = ships
         this.owner = owner
         this.visitedCells = []
         this.damagedShips = 0
+        this.locationsTaken = []
+        this.ships = ships
     }
     
     setShipsPosition(ship, location) {
@@ -24,9 +27,8 @@ class GameBoard {
         });
         if(count >= this.ships.length) {
             return true
-        } else {
-            return false
         }
+        return false
     }
 
     receiveStrike(spot) {
@@ -38,13 +40,16 @@ class GameBoard {
                         const hitSpot = document.getElementById(spot)
                         hitSpot.setAttribute("class", "hit-spot")
                         if(ship.isSunk()) {
-                            this.displayMessage("One Enemy ship Destroyed")
+                            this.displayMessage(`One ${this.owner} ship destroyed`)
                             if(this.isAllShipSunk()) {
-                                this.displayMessage("Game over all ships destroyed")
+                                this.displayMessage(`Game over all ships destroyed ${this.owner} wins`)
+                                console.log(2)
                             }
+                            console.log("bread")
                         }
-                        //throw BreakException
-                    }
+                        // throw BreakException
+                        return true
+                    } 
                 })
                 const location = document.getElementById(spot)
                 location.innerHTML = "X"
@@ -52,16 +57,22 @@ class GameBoard {
                 this.displayMessage("choose another spot")
             }
         } else {
-            this.displayMessage("Game over all ships destroyed")
+            this.displayMessage(`Game over all ships destroyed ${this.owner} wins`)
+            console.log(1)
         }
     }
-
     isPositionTaken(position) {
         if(this.visitedCells.includes(position)) {
             return true
         }
         return false
         
+    }
+    isPlacementSpotTaken(spot) {
+        if(this.locationsTaken.includes(spot)) {
+            return true
+        }
+        return false
     }
 
     renderBoard (parent){
@@ -92,7 +103,7 @@ class GameBoard {
         }
     }
     
-     displayMessage(message) {
+    displayMessage(message) {
         const messageArea = document.getElementById("message")
         messageArea.innerHTML = message
     }
