@@ -2,6 +2,7 @@ class Ship {
 
     constructor(location) {
         this.location = location;
+        this.length = location.length;
         this.hits = 0;
     }
 
