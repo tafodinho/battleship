@@ -4,7 +4,6 @@ import {
         clearMessage, 
         displayBoard,
         generateSpot,generateShips } from './ultility'
-import Player from './Player';
 
 const computerShips = generateShips("c")
 const playerShips = generateShips("p")

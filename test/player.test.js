@@ -1,7 +1,8 @@
 //import Player from '../src/Player'
-var player = require('../src/Player');
-
+import Ship from '../src/Ship'
+//var player = require('../src/Player');
+let ship = new Ship(["c01","c02","c03"])
+ 
 test('Test player to create new player',()=>{
-    // const player = new Player('Nonso', board);
-    expect('Nonso').toBe('Nonso')
+    expect('Ship').toBe(typeof ship)
 })
