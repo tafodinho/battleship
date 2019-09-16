@@ -6,19 +6,21 @@ import {
         generateSpot,generateShips } from './ultility'
 import Player from './Player';
 
-const computerShips = generateShips("c")
-const playerShips = generateShips("p")
-console.log(computerShips)
-const playerParent = document.getElementById("player1-board")
-const computerParent = document.getElementById("player2-board")
-const container = document.getElementById("container")
-const playerBoard = new GameBoard(playerShips, "p")
-const computerBoard = new GameBoard(computerShips, "c")
+const reset = document.getElementById("reset");
+const start = document.getElementById("start")
 
 
-displayBoard(playerBoard, playerParent)
+    const computerShips = generateShips("c")
+    const playerShips = generateShips("p")
+    const playerParent = document.getElementById("player1-board")
+    const computerParent = document.getElementById("player2-board")
+    const container = document.getElementById("container")
+    const playerBoard = new GameBoard(playerShips, "p")
+    const computerBoard = new GameBoard(computerShips, "c")
 
-displayBoard(computerBoard, computerParent)
+    displayBoard(playerBoard, playerParent)
+    displayBoard(computerBoard, computerParent)
+
 
 container.addEventListener("click", (e) => {
     if(markHitLocation(e.target.id, computerBoard)) {
@@ -26,12 +28,8 @@ container.addEventListener("click", (e) => {
     }
     
 })
-let reset = document.querySelector(".reset");
 
-reset.addEventListener('click', function(event) {
-    generateShips("c");
-    generateShips("p");
-});
+
 
 
 // clearMessage()
