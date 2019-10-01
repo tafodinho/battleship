@@ -1,24 +1,21 @@
-
-import {createAShip,checkSuperImposition } from './ultility'
 class GamePlay {
-    
-    constructor(playerBorad, ComputerBoard) {
-        this.playerBorad = playerBorad
-        this.ComputerBoard = ComputerBoard;
-    }
+  constructor(playerBorad, ComputerBoard) {
+    this.playerBorad = playerBorad;
+    this.ComputerBoard = ComputerBoard;
+  }
 
-    playBattleShip() {
-        do {
-            console.log("in game");
-          }
-          while (!isGameOver());
-          
+  playBattleShip() {
+    do {
+      console.log('in game');
     }
-    isGameOver(){
-        if(this.ComputerBoard.isAllShipSunk() || this.playerBorad.isAllShipSunk()){
-            return true;
-        }
-        return false;
+    while (!this.isGameOver());
+  }
+
+  isGameOver() {
+    if (this.ComputerBoard.isAllShipSunk() || this.playerBorad.isAllShipSunk()) {
+      return true;
     }
+    return false;
+  }
 }
-export default GamePlay
+export default GamePlay;
