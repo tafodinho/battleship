@@ -80,7 +80,7 @@ class GameBoard {
         return false
     }
 
-    renderBoard (parent){
+    renderBoard(parent){
         for(let i = 0; i < this.numRows; i++) {
             const row = document.createElement("tr")
             row.setAttribute("id", `row-${i}`)
