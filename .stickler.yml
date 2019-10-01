@@ -6,3 +6,4 @@ files:
     ignore:
         - 'dist/*'
         - 'webpack.common.js'
+        - 'webpack.dev.js'
