@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 class GamePlay {
   constructor(playerBorad, ComputerBoard) {
     this.playerBorad = playerBorad;
