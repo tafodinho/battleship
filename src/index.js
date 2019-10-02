@@ -1,7 +1,6 @@
 import GameBoard from './GameBoard';
 import {
   markHitLocation,
-  clearMessage,
   displayBoard,
   generateSpot,
   generateShips,
@@ -28,12 +27,5 @@ container.addEventListener('click', (e) => {
 });
 
 reset.addEventListener('click', () => {
-  generateShips('c');
-  generateShips('p');
-
-  displayBoard(playerBoard, playerParent);
-
-  displayBoard(computerBoard, computerParent);
+  document.reload();
 });
-
-clearMessage();
