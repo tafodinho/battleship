@@ -8,5 +8,4 @@ class Player {
     }
 }
 
-//export default Player
-module.exports = Player;
+export default Player
