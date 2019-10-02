@@ -1,0 +1,9 @@
+linters:
+    flake8:
+    eslint:
+        config: './.eslintrc.json'
+files:
+    ignore:
+        - 'dist/*'
+        - 'webpack.common.js'
+        - 'webpack.dev.js'
