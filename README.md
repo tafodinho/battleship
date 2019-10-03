@@ -13,4 +13,4 @@ Javascript, CSS and HTML5
 
 ## Site
 
-* https://josh-react-bookstore.herokuapp.com/
+* [battleship](https://raw.githack.com/tafodinho/battleship/new-fixes-to-game/dist/index.html)
