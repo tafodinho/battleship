@@ -81,7 +81,7 @@ const checkSuperImposition = (ships, ship, lengthOfShip, owner, orientation) => 
     });
   }
   // eslint-disable-next-line eqeqeq
-  if (imposition == 0) {
+  if (imposition === 0) {
     return ship;
   }
   return createAShip(lengthOfShip, owner, orientation, ships);
