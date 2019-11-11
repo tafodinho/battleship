@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-use-before-define */
 import Ship from './Ship';
 
@@ -26,19 +27,19 @@ const generateSpot = (board) => {
 const generateShips = (owner) => {
   const ships = [];
   // genereate two ships with length 4
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 2; i++) {
     ships.push(createAShip(4, owner, 'horizontal', ships));
   }
   // genereate three ships with length 3
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 2; i++) {
     ships.push(createAShip(3, owner, null, ships));
   }
   // genereate 2 ships with length 2
-  for (let i = 0; i < 2; i += 1) {
+  for (let i = 0; i < 2; i++) {
     ships.push(createAShip(2, owner, 'horizontal', ships));
   }
   // genereate 4 ships with length 1
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < 3; i++) {
     ships.push(createAShip(1, owner, null, ships));
   }
   return ships;
@@ -79,7 +80,8 @@ const checkSuperImposition = (ships, ship, lengthOfShip, owner, orientation) => 
       imposition = currentValue.location.filter((element) => ship.location.includes(element));
     });
   }
-  if (imposition === 0) {
+  // eslint-disable-next-line eqeqeq
+  if (imposition == 0) {
     return ship;
   }
   return createAShip(lengthOfShip, owner, orientation, ships);

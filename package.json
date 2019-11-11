@@ -7,7 +7,10 @@
     "test": "jest",
     "webpack": "webpack",
     "watch": "webpack --progress --watch --developement --config webpack.dev.js",
-    "scss": "node-sass --watch assets/scss -o assets/css"
+    "scss": "node-sass --watch assets/scss -o assets/css",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",

@@ -1,13 +1,14 @@
+/* eslint-disable no-restricted-globals */
 import GameBoard from './GameBoard';
 import {
   markHitLocation,
-  clearMessage,
   displayBoard,
   generateSpot,
   generateShips,
 } from './ultility';
 
 const reset = document.getElementById('reset');
+
 
 const computerShips = generateShips('c');
 const playerShips = generateShips('p');
@@ -28,12 +29,5 @@ container.addEventListener('click', (e) => {
 });
 
 reset.addEventListener('click', () => {
-  generateShips('c');
-  generateShips('p');
-
-  displayBoard(playerBoard, playerParent);
-
-  displayBoard(computerBoard, computerParent);
+  location.reload();
 });
-
-clearMessage();
