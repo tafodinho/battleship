@@ -1,0 +1,34 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "A multiplayer battleship game where the main goal is to destroy all your opponents ships in sea",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "webpack": "webpack",
+    "watch": "webpack --progress --watch --developement --config webpack.dev.js",
+    "scss": "node-sass --watch assets/scss -o assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tafodinho/battleship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tafodinho/battleship/issues"
+  },
+  "homepage": "https://github.com/tafodinho/battleship#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "node-sass": "^4.12.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-merge": "^4.2.1"
+  }
+}
