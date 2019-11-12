@@ -1,21 +1,3 @@
-# battleship
-A multiplayer battleship game where the main goal is to destroy all your opponents ships in sea
-full description of the game can be found [here](https://www.theodinproject.com/courses/javascript/lessons/battleship)
-
-
-## Built With
-
-Javascript, CSS and HTML5
-
-## Contributors
-
-* **Joshua Tafang**  - [Profile](https://github.com/tafodinho)
-
-## Site
-
-* [battleship](https://raw.githack.com/tafodinho/battleship/new-fixes-to-game/dist/index.html)
-
-
 
 # Battleship
 
@@ -38,6 +20,13 @@ npm -v >=  6.4.1
 webpack -v >= 3.5.6
 
 ```
+### Build with
+
+Jacascript
+HTML
+CSS
+Webpack
+Sass
 
 ### Installing
 
@@ -79,11 +68,15 @@ Run `npm run start` and enjoy !
 
 * **Nonso Offorma**  - [Profile](https://github.com/offorma)
 
-## License
+## Preview
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* [battleship](https://raw.githack.com/tafodinho/battleship/new-fixes-to-game/dist/index.html)
 
 ## Screenshots
 
 ![screenshot](https://github.com/tafodinho/battleship/blob/master/assets/images/Screenshot%20from%202019-11-12%2014-18-57.png)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
