@@ -31,7 +31,7 @@
     "jest": "^24.9.0",
     "node-sass": "^4.12.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.2.1"
   }
 }
